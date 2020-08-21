@@ -17,7 +17,7 @@ const IssueReducer = (state=initialState, actions)=>{
                 return {
                     ...state,
                     insFetching: false,
-                    players: actions.payload
+                    issues: actions.payload
                 }
         case FETCH_FAIL:
                 return {
@@ -30,14 +30,14 @@ const IssueReducer = (state=initialState, actions)=>{
             return{
                 ...state,
                 isPosting: true,
-                players: [...state.issues]
+                issues: [...state.issues]
             }
 
         case POST_SUCCESS:
             return {
                 ...state,
                 isPosting: false,
-                players: actions.payload
+                issues: actions.payload
             }    
 
         case POST_FAIL:
