@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { BoardContext } from '../context/BoardContext'
+import { BoardContext } from '../reducer/BoardContext'
 import axiosAuth from '../utils/axiosAuth'
 import { useHistory } from 'react-router-dom'
 import DeleteItem from './DeleteItems'
