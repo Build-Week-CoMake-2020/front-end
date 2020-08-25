@@ -44,7 +44,7 @@ const App = () => {
 
        <Route exact path = '/'>  
        <Card>
-        {/* <CardImg style = {{width:'100%', margin:'0 auto', height:'800px'}} src={require ('./assets/img3.jpg')}/>  */}
+        <CardImg style = {{width:'100%', margin:'0 auto', height:'800px'}} src={require ('./assets/neighborhood.jpeg')}/> 
         </Card>
         </Route>   
             </div>
