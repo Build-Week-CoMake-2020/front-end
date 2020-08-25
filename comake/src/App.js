@@ -26,7 +26,7 @@ const App = () => {
     <IssueProvider>
     <Router>
         <Navbar>
-            <NavbarBrand><Link to='/'>NeghborlI</Link></NavbarBrand>
+            <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand>
             <Nav>
                 <NavItem>
                     <Link style = {{padding: '10px'}} to='/'>Home</Link>

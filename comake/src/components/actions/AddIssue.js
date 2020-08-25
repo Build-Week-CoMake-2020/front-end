@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { IssueContext } from '../context/IssueContext'
-import AxiosAuth from './utils/AxiosAuth'
+import AxiosAuth from '../../utils/AxiosAuth'
 import { useHistory } from 'react-router-dom'
 // import DeleteItem from './DeleteItems'
 
