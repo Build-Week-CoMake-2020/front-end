@@ -16,7 +16,7 @@ const Items = (props) => {
     const id = useParams ()
     useEffect (() => {
         axios
-        .get(`https://amp-node-api.herokuapp.com/api/market/${id.id}`)
+        .get(`https://amp-node-api.herokuapp.com/api/${id.id}`)
         .then (response => {
             console.log(response.data);
             setProducts(response.data)

@@ -7,7 +7,7 @@ export const IssueProvider = props => {
     const [issues, setIssues] = useState([])
     useEffect(() => {
         axiosAuth()
-            .get("market")
+            .get("dashboard")
             .then(response => {
                 setIssues(response.data);
                 console.log(response.data);

@@ -6,7 +6,7 @@ const OwnersList = props => {
     const [owners, setOwner] = useState([])
     useEffect(() => {
         axiosAuth()
-            .get("business")
+            .get("issue")
             .then(response => {
                 setOwner(response.data);
                 console.log(response.data);
