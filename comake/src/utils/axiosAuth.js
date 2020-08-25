@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-const axiosAuth = () => {
+const AxiosAuth = () => {
     const token = window.localStorage.getItem('token')
 
     return axios.create({
-        baseURL: 'http://localhost:5000/api/',
+        baseURL: 'https://peaceful-everglades-45828.herokuapp.com/api/users/:id',
         headers: {
             Authorization: token
         }
     })
 }
-export default axiosAuth;
+export default AxiosAuth;

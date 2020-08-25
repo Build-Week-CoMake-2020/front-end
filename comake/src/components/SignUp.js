@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import axiosAuth from '../utils/axiosAuth';
+import axiosAuth from '../utils/AxiosAuth';
 
 export default function SignUp() {
   // managing state for our form inputs
