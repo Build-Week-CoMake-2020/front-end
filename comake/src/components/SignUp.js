@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import axiosAuth from '../utils/AxiosAuth';
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
 export default function SignUp() {
   // managing state for our form inputs
@@ -130,9 +131,11 @@ export default function SignUp() {
   }, [formState]);
 
   return (
-    <form onSubmit={formSubmit}>
+    <Form onSubmit={formSubmit}>
       {serverError ? <p className="error">{serverError}</p> : null}
-
+      <FormGroup style= {{margin:'0 auto', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
+                <legend style= {{margin:'0 auto', marginBottom: '30px', postion: 'flex'}}>Login</legend>
+            </FormGroup>
       <label htmlFor="name">
         Name
         <input
@@ -187,6 +190,6 @@ export default function SignUp() {
         Submit
       </button>
       <pre>{JSON.stringify(post, null, 2)}</pre>
-    </form>
+    </Form>
   );
 }

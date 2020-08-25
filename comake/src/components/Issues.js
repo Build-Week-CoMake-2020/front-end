@@ -11,7 +11,7 @@ import ItemList from './ItemList';
 
 
 const Items = (props) => {
-    const [products, setProducts] = useState ();
+    const [issues, setIssues] = useState ();
 
     const id = useParams ()
     useEffect (() => {
@@ -28,7 +28,7 @@ const Items = (props) => {
         return <div>Loading products...</div>;
       }
     
-      const { id, name, date, description, location } = products;
+      const { id, name, date, description, location } = issues;
 
     return (
         <div className = "item-wrapper">

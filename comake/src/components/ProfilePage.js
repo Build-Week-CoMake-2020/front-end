@@ -35,12 +35,12 @@ const ProfilePage = () => {
 
                 <Link to='/AddItems'>
                     <FormGroup style={{padding:'10px'}}>
-                    <Button >Add Items</Button>
+                    <Button >Add Issue</Button>
                     </FormGroup>
                 </Link>
                 <Link to='/DeleteItem'>
                     <FormGroup style={{padding:'10px'}}>
-                    <Button>Delete Items</Button>
+                    <Button>Delete Issue</Button>
                     </FormGroup>
                 </Link>
 
