@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Navbar, NavbarBrand, NavItem, NavLink, NavbarText, Nav, Button, CardImg, Card} from 'reactstrap'
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-//import Login from './components/Login' ;
+import Login from './components/Login' ;
 import SignUp from './components/SignUp';
 import AddIssue from './components/actions/AddIssue';
 import ProfilePage from './components/ProfilePage';
@@ -26,19 +26,19 @@ const App = () => {
     <IssueProvider>
     <Router>
         <Navbar>
-            <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand>
+            {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
             <Nav>
                 <NavItem>
-                    <Link style = {{padding: '10px'}} to='/'>Home</Link>
-                    <Link style = {{padding: '10px'}} to='/signup'> SignUp</Link>
-                    <Link style = {{padding: '10px'}} to='/login'> Login </Link>
+                    <Link style = {{padding: '10px', color: 'black'}} to='/'>Home</Link>
+                    <Link style = {{padding: '10px', color: 'black'}} to='/signup'> SignUp</Link>
+                    <Link style = {{padding: '10px', color: 'black'}} to='/login'> Login </Link>
                 </NavItem>
             </Nav>
       </Navbar>
       <div style={{backgroundColor:'#e74c3d'}}>
-            <Jumbotron fluid style={{backgroundColor:'#303030'}}>
+            <Jumbotron fluid style={{backgroundColor:'#F56A6A'}}>
                 <Container>
-                    <h1 className='display-3' style={{color:'#fff'}}><span style={{fontFamily:'Monoton', color:'#e74c3d'}}></span> NeighborlI</h1>
+                    <h1 className='display-3' style={{color:'#fff'}}><span style={{fontFamily:'Monoton', color:'#e74c3d'}}></span> Neighborli</h1>
                 </Container>
             </Jumbotron>
 
@@ -69,7 +69,7 @@ const App = () => {
       </Route>  */}
       <Switch>
         <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
-        {/* <Route exact path="/login" render={(props) => <Login {...props} />} /> */}
+        <Route exact path="/login" render={(props) => <Login {...props} />} />
       </Switch>
     </Router>
     </IssueProvider>
