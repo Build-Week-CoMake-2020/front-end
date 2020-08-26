@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import * as yup from 'yup';
-import AxiosAuth from '../utils/AxiosAuth';
+import axiosAuth from '../utils/axiosAuth';
 
 
 const Login = () => {
@@ -20,7 +20,7 @@ const Login = () => {
     });
     const { push } = useHistory()
     const api_login = (loginData) => {
-        AxiosAuth()
+        axiosAuth()
      
            .post('http://amp-node-api.herokuapp.com/api/auth/login', loginData)
             .then((res) => {
