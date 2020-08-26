@@ -48,20 +48,20 @@ const Login = () => {
 
         <>
             <Form onSubmit={handleSubmit}
-            style = {{width: '40%', margin:'0 auto', border:'2px solid black', marginTop: '10px', backgroundColor:'#303030', color:'white', padding: '25px'}}>
+            style = {{width: '40%', margin:'0 auto', marginTop: '10px', backgroundColor:'white', color:'white', padding: '25px'}}>
             <FormGroup style= {{margin:'0 auto', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
                 <legend style= {{margin:'0 auto', marginBottom: '30px', postion: 'flex'}}>Login</legend>
             </FormGroup>
                  {/* <h2>Log in to add new items</h2> */}
                  <FormGroup>
-                <Input placeholder="Email: Mark@email.com " type='email' name='email' onChange={handleChange} style={{ width: '75%', margin: '20px auto'}}></Input>
+                <Input placeholder="Email: Mark@email.com " type='email' name='email' onChange={handleChange} style={{ width: '120%', margin: '20px auto'}}></Input>
                 </FormGroup>
 
                 <FormGroup>
-                <Input placeholder="Password: 1234" type='password' name='password' onChange={handleChange} style={{ width: '75%', margin: '20px auto' }}></Input>
+                <Input placeholder="Password: 1234" type='password' name='password' onChange={handleChange} style={{ width: '120%', margin: '20px auto' }}></Input>
                 </FormGroup>
                 
-                <Button style = {{marginLeft:'85px'}}>login</Button>
+                <Button style = {{marginLeft:'110px'}}>login</Button>
                 {/* <Link to ='/ListPage'>
                 
                 </Link> */}
