@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import axiosAuth from '../utils/AxiosAuth';
+import axiosAuth from '../utils/axiosAuth';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
 export default function SignUp() {
