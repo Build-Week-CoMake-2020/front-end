@@ -8,8 +8,8 @@ import ProfilePage from './components/ProfilePage';
 import IssuesList from './components/IssuesList';
 import PrivateRoute from './utils/PrivateRoute';
 import { IssueProvider } from './components/context/IssueContext';
-
 import axios from 'axios'
+
 
 const App = () => {
   const [issues, setIssues] = useState([]);
@@ -25,11 +25,11 @@ const App = () => {
   return (
     <IssueProvider>
     <Router>
-        <Navbar>
+        <Navbar class="navbar-toggler">
             {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
             <Nav>
                 <NavItem>
-                    <Link style = {{padding: '10px', color: 'black'}} to='/'>Home</Link>
+                    <Link style = {{padding: '10px', color: 'black' }} to='/'>Home</Link>
                     <Link style = {{padding: '10px', color: 'black'}} to='/signup'> SignUp</Link>
                     <Link style = {{padding: '10px', color: 'black'}} to='/login'> Login </Link>
                 </NavItem>
