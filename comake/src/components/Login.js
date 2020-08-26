@@ -26,7 +26,7 @@ const Login = () => {
             .then((res) => {
                 
                 localStorage.setItem("token", res.data.token);
-                push("/ListPage");
+                push("/ProfilePage");
 
             })
             .catch(err => {
