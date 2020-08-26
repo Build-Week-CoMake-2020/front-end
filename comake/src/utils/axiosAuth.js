@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const AxiosAuth = () => {
+const axiosAuth = () => {
     const token = window.localStorage.getItem('token')
 
     return axios.create({
@@ -10,4 +10,4 @@ const AxiosAuth = () => {
         }
     })
 }
-export default AxiosAuth;
+export default axiosAuth;

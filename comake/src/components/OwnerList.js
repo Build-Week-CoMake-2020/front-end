@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import OwnerCard from './OwnerCard'
-import axiosAuth from '../utils/AxiosAuth'
+import axiosAuth from '../utils/axiosAuth'
 
 const OwnersList = props => {
     const [owners, setOwner] = useState([])

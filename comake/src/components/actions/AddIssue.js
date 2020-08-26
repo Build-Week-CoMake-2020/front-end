@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { IssueContext } from '../context/IssueContext'
-import AxiosAuth from '../../utils/AxiosAuth'
+import axiosAuth from '../../utils/axiosAuth'
 import { useHistory } from 'react-router-dom'
 // import DeleteItem from './DeleteItems'
 
@@ -33,7 +33,7 @@ function AddIssue() {
     const addProduct = e => {
         e.preventDefault();
         setIssues(prevIssues => setIssues([...prevIssues, { item: name, date: date, description: description, location: location }]))
-        AxiosAuth()
+        axiosAuth()
             .post(``, newIssue)
             .then(res => setNewIssue(res.data.data).history.push('/Profilepage'));
     }

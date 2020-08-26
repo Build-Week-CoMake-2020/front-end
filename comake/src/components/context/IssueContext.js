@@ -1,12 +1,12 @@
 import React, { useState, useEffect, createContext } from 'react'
-import AxiosAuth from '../../utils/AxiosAuth'
+import axiosAuth from '../../utils/axiosAuth'
 
 
 export const IssueContext = createContext();
 export const IssueProvider = props => {
     const [issues, setIssues] = useState([])
     useEffect(() => {
-        AxiosAuth()
+        axiosAuth()
             .get("dashboard")
             .then(response => {
                 setIssues(response.data);
