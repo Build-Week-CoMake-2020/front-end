@@ -22,7 +22,7 @@ const Login = () => {
     const api_login = (loginData) => {
         axiosAuth()
      
-           .post('http://amp-node-api.herokuapp.com/api/auth/login', loginData)
+           .post('/auth/login', loginData)
             .then((res) => {
                 
                 localStorage.setItem("token", res.data.token);
