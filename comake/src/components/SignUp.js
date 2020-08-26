@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import axiosAuth from '../utils/axiosAuth';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Link } from "react-router-dom"
 
 export default function SignUp() {
   // managing state for our form inputs
@@ -62,7 +63,7 @@ export default function SignUp() {
     // send out POST request with obj as second param, for us that is formState.
     // trigger .catch by changing URL to "https://reqres.in/api/register" -> see step 7 in notion notes
     axiosAuth
-      .post("https://reqres.in/api/users", formState)
+      .post("/auth/register", formState)
       .then((res) => {
         console.log("success!", res.data);
         // update temp state with value from API to display in <pre>
@@ -186,9 +187,11 @@ export default function SignUp() {
           <p className="error">{errors.terms}</p>
         ) : null}
       </label>
+      <Link to = '/login'>
       <button disabled={buttonDisabled} type="submit">
         Submit
       </button>
+      </Link>
       <pre>{JSON.stringify(post, null, 2)}</pre>
     </Form>
   );
