@@ -58,7 +58,7 @@ const Login = () => {
                 </FormGroup>
 
                 <FormGroup>
-                <Input placeholder="Password: testmin1234" type='password' name='password' onChange={handleChange} style={{ width: '75%', margin: '20px auto' }}></Input>
+                <Input placeholder="Password: 1234" type='password' name='password' onChange={handleChange} style={{ width: '75%', margin: '20px auto' }}></Input>
                 </FormGroup>
                 
                 <Button style = {{marginLeft:'85px'}}>login</Button>
