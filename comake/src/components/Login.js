@@ -54,7 +54,7 @@ const Login = () => {
             </FormGroup>
                  {/* <h2>Log in to add new items</h2> */}
                  <FormGroup>
-                <Input placeholder="Username: testmin" type='username' name='username' onChange={handleChange} style={{ width: '75%', margin: '20px auto'}}></Input>
+                <Input placeholder="Email: Mark@email.com " type='email' name='email' onChange={handleChange} style={{ width: '75%', margin: '20px auto'}}></Input>
                 </FormGroup>
 
                 <FormGroup>
