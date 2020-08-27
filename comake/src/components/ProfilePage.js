@@ -23,7 +23,6 @@ const ProfilePage = () => {
     const [issues, setIssues] = useContext(IssueContext)
    
     
-
     return (
         <div style={{ backgroundColor: '#e74c3d' }}>
             <div className='header' style={{ display: 'flex' }}>
@@ -52,16 +51,14 @@ const ProfilePage = () => {
                     <Button >Add Issue</Button>
                     </FormGroup>
                 </Link>
-                <Link to='/DeleteItem'>
-                    {/* <FormGroup style={{padding:'10px'}}>
+                
+                    <FormGroup style={{padding:'10px'}}>
                     <Button onClick = { e => {
                         e.stopPropagation();
                         console.log(issues)
                         deleteIssue(issues)}}>Delete Issue</Button>
-                    </FormGroup> */}
-                </Link>
-                
-
+                    </FormGroup>
+            
             </div>
             <br />
             <Card>
@@ -70,11 +67,6 @@ const ProfilePage = () => {
                     <IssuesList items={issues} />
                 </div>
             </Card>
-
-
-
-
-
 
         </div>
 
