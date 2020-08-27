@@ -19,7 +19,7 @@ const Items = (props) => {
         .get(`/posts/filter?${id.id}`)
         .then (response => {
             console.log(response.data);
-            setProducts(response.data)
+            setIssues(response.data)
         })
         .catch(error => console.log("Error!", error))
     }, [id]);
@@ -28,7 +28,7 @@ const Items = (props) => {
         return <div>Loading products...</div>;
       }
     
-      const { id, name, date, description, location } = issues;
+      const { id, name, date, description, zip_id} = issues;
 
     return (
         <div className = "item-wrapper">
@@ -44,7 +44,7 @@ const Items = (props) => {
                      Description: <em>{description}</em>
                 </div>
                 <div className = "location">
-                    Location: <strong>{location}</strong>
+                    Location: <strong>{zip_id}</strong>
                 </div>
            
 

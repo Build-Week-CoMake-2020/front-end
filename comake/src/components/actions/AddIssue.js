@@ -10,7 +10,7 @@ function AddIssue() {
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
-    const [location, setLocation] = useState('');
+    const [zip_id, setZip_id] = useState('');
     const [newIssue, setNewIssue] = useState('')
     const [issues, setIssues] = useContext(IssueContext);
 
@@ -28,11 +28,11 @@ function AddIssue() {
         setDescription(e.target.value)
     }
     const updateLocation = e => {
-        setLocation(e.target.value)
+        setZip_id(e.target.value)
     }
     const addProduct = e => {
         e.preventDefault();
-        setIssues(prevIssues => setIssues([...prevIssues, { item: name, date: date, description: description, location: location }]))
+        setIssues(prevIssues => setIssues([...prevIssues, { item: name, date: date, description: description, zip_id: zip_id }]))
         axiosAuth()
             .post(``, newIssue)
             .then(res => setNewIssue(res.data.data).history.push('/Profilepage'));
@@ -42,7 +42,7 @@ function AddIssue() {
         <form onSubmit={addProduct}>
             <input placeholder="Item name" type="text" name="name" value={name} onChange={updateName} />
             <input placeholder="date" type="text" name="date" value={date} onChange={updateDate} />
-            <input placeholder="Location" type="text" name="location" value={location} onChange={updateLocation} />
+            <input placeholder="Location" type="text" name="location" value={zip_id} onChange={updateLocation} />
             <input placeholder="Description" type="text" name="description" value={description} onChange={updateDescription} />
             <button>Submit</button>
         </form>
@@ -53,7 +53,7 @@ function AddIssue() {
                         <div className="item-card" key={itm.id} style={{ padding: '25px' }}  >
                             <h1 >{itm.item}</h1>
                             <p>{itm.description}</p>
-                            <p><strong>{itm.location}</strong></p>
+                            <p><strong>{itm.zip_id}</strong></p>
                             <p>${itm.date}</p>
                         </div>
                 );
