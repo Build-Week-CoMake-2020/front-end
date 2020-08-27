@@ -33,7 +33,7 @@ const ProfilePage = () => {
                 </CardTitle> */}
                 <hr />
 
-                <Link to='/AddItems'>
+                <Link to='/AddIssue'>
                     <FormGroup style={{padding:'10px'}}>
                     <Button >Add Issue</Button>
                     </FormGroup>
