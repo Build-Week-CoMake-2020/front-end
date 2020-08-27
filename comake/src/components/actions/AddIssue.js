@@ -34,15 +34,15 @@ function AddIssue() {
         e.preventDefault();
         setIssues(prevIssues => setIssues([...prevIssues, { item: name, date: date, description: description, zip_id: zip_id }]))
         axiosAuth()
-            .post(``, newIssue)
+            .post(`/posts/create`, newIssue)
             .then(res => setNewIssue(res.data.data).history.push('/Profilepage'));
     }
     return (
         <>
         <form onSubmit={addProduct}>
-            <input placeholder="Item name" type="text" name="name" value={name} onChange={updateName} />
+            <input placeholder="Issue name" type="text" name="name" value={name} onChange={updateName} />
             <input placeholder="date" type="text" name="date" value={date} onChange={updateDate} />
-            <input placeholder="Location" type="text" name="location" value={zip_id} onChange={updateLocation} />
+            <input placeholder="Location" type="text" name="zip_id" value={zip_id} onChange={updateLocation} />
             <input placeholder="Description" type="text" name="description" value={description} onChange={updateDescription} />
             <button>Submit</button>
         </form>
@@ -54,7 +54,7 @@ function AddIssue() {
                             <h1 >{itm.item}</h1>
                             <p>{itm.description}</p>
                             <p><strong>{itm.zip_id}</strong></p>
-                            <p>${itm.date}</p>
+                            <p>{itm.date}</p>
                         </div>
                 );
             })}
