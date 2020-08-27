@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Link } from "react-router-dom"
 
 export default function SignUp() {
-  // managing state for our form inputs
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -13,33 +13,32 @@ export default function SignUp() {
     terms: true
   });
 
-  // server error
+  
   const [serverError, setServerError] = useState("");
 
-  // control whether or not the form can be submitted if there are errors in form validation (in the useEffect)
+  
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
-  // managing state for errors. empty unless inline validation (validateInput) updates key/value pair to have error
+
 
   const [errors, setErrors] = useState({
-    name: "", // strings describing error that has occured, set from yup in schema when invalid
+    name: "", 
     email: "",
-    motivation: "",
+    address: "",
     terms: ""
   });
 
-  // temporary state used to display response from API. this is not a commonly used convention
+  
   const [post, setPost] = useState([]);
 
-  // inline validation, validating one key/value pair at a time
+  
   const validateChange = (e) => {
-    // get the rules out of schema with reach at key "e.target.name" --> "formSchema[e.target.name]"
-
+    
     yup
       .reach(formSchema, e.target.name)
-      .validate(e.target.name === "terms" ? e.target.checked : e.target.value) // compare with real value. does it break the rule?
+      .validate(e.target.name === "terms" ? e.target.checked : e.target.value) 
       .then((valid) => {
-        // if valid param is true, then erase any errors in error state at that key/value in errors
+        
         setErrors({
           ...errors,
           [e.target.name]: ""
@@ -48,50 +47,48 @@ export default function SignUp() {
       .catch((err) => {
         console.log(err);
 
-        // if failing validation, set error in state
+        
         setErrors({
           ...errors,
           [e.target.name]: err.errors[0]
         });
       });
   };
-  // onSubmit function
+  
   const formSubmit = (e) => {
-    e.preventDefault(); // <form> onSubmit has default behavior from HTML!
+    e.preventDefault(); 
     console.log("form submitted!");
 
-    // send out POST request with obj as second param, for us that is formState.
-    // trigger .catch by changing URL to "https://reqres.in/api/register" -> see step 7 in notion notes
+    
     axiosAuth
       .post("/auth/register", formState)
       .then((res) => {
         console.log("success!", res.data);
-        // update temp state with value from API to display in <pre>
+       
         setPost(res.data);
 
-        // if successful request, clear any server errors
-        setServerError(null); // see step 7 in notion notes
+        
+        setServerError(null); 
 
-        // clear state, could also use a predetermined initial state variable here
+        
         setFormState({
           name: "",
           email: "",
-          motivation: "",
+          address: "",
          
           terms: true
         });
       })
       .catch((err) => {
-        // this is where we could create a server error in the form! if API request fails, say for authentication (that user doesn't exist in our DB),
-        // set serverError
+    
         setServerError("oops! something happened!");
       });
   };
 
-  // onChange function
+
   const inputChange = (e) => {
-    // use persist with async code -> we pass the event into validateChange that has async promise logic with .validate
-    e.persist(); // necessary because we're passing the event asyncronously and we need it to exist even after this function completes (which will complete before validateChange finishes)
+    
+    e.persist(); 
     console.log("input changed!", e.target.value);
     const newFormData = {
       ...formState,
@@ -99,35 +96,31 @@ export default function SignUp() {
         e.target.type === "checkbox" ? e.target.checked : e.target.value
     };
 
-    validateChange(e); // for each change in input, do inline validation
-    setFormState(newFormData); // update state with new data
+    validateChange(e); 
+    setFormState(newFormData); 
   };
 
-  // schema used for all validation to determine whether the input is valid or not
+ 
   const formSchema = yup.object().shape({
     name: yup
     .string()
-    .required("Name is a required field"), // must include name or else error
+    .required("Name is a required field"), 
     email: yup
       .string()
       .email("Must be a valid email")
-      .required("Must include an email"), // must have string present, must be of the shape of an email
-    motivation: yup
+      .required("Must include an email"),
+    address: yup
     .string()
     .required("Must include why you wanna join"),
-    // value must be one of the values in the array, otherwise throws error
+    
     terms: yup.boolean().oneOf([true], "Please agree to T&Cs")
   });
 
-  // whenever state updates, validate the entire form. if valid, then change button to be enabled.
+  
   useEffect(() => {
     formSchema.isValid(formState).then((isValid) => {
-      // isValid is a boolean
-      // !true === false
-      // !false === true
-      // if the form is valid, and we take the opposite --> we do not want disabled btn
-      // if the form is invalid (false) and we take the opposite (!) --> we will disable the btn
-      setButtonDisabled(!isValid); // true means btn will be disabled
+      
+      setButtonDisabled(!isValid); 
     });
   }, [formState]);
 
@@ -161,16 +154,16 @@ export default function SignUp() {
           <p className="error">{errors.email}</p>
         ) : null}
       </label>
-      <label htmlFor="motivation">
+      <label htmlFor="address">
         Address
         <textarea
-          id="motivation"
-          name="motivation"
-          value={formState.motivation}
+          id="address"
+          name="address"
+          value={formState.address}
           onChange={inputChange}
         />
         {errors.motivation.length > 0 ? (
-          <p className="error">{errors.motivation}</p>
+          <p className="error">{errors.address}</p>
         ) : null}
       </label>
       
@@ -188,7 +181,7 @@ export default function SignUp() {
         ) : null}
       </label>
       <Link to = '/login'>
-      <button disabled={buttonDisabled} type="submit">
+      <button disabled={buttonDisabled} type="submit" onClick = {() => history.push('/login')}>
         Submit
       </button>
       </Link>

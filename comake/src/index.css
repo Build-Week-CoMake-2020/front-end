@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+
+
+NavItem {
+
+}
 h1 {
   font-size: 9rem;
 }
@@ -24,6 +29,9 @@ html {
   font-family: sans-serif;
   text-align: center;
 }
+
+
+
 
 form {
   
