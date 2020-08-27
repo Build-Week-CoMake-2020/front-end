@@ -38,12 +38,12 @@ function AddIssue() {
         e.preventDefault();
         setIssues(prevIssues => setIssues([...prevIssues, { item: name, description: description, zip_id: zip_id }]))
         axiosAuth()
-            .post(`https://peaceful-everglades-45828.herokuapp.com/api/posts/create`, newIssue)
+            .post(`/posts/create`, newIssue)
             .then(res => setNewIssue(res.data.data).history.push('/ProfilePage'));
     }
     const deleteIssue = issue => {
         axiosAuth()
-        .delete(`posts/${issue.id}`, issue)    //delete
+        .delete(`/posts/${issue.id}`, issue)    //delete
         .then(res => {
           window.location.reload(true);
           // console.log(res.data)
@@ -70,7 +70,7 @@ function AddIssue() {
           </Link>
           
         </Form>
-        <div className="items-list-wrapper">
+        <div className="issues-list-wrapper">
                 {issues.map(itm => {
                 return (
    
@@ -80,7 +80,9 @@ function AddIssue() {
                             <p>{itm.description}</p>
                             <p><strong>{itm.zip_id}</strong></p>
                             {/* <p>{itm.date}</p> */}
-                    
+                    <button onClick = { e => {
+                        e.stopPropagation();
+                        deleteIssue (issues)}}> X</button>
                         </div>
                     
                         

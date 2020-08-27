@@ -19,9 +19,8 @@ function IssuesList(props) {
                         <div className="item-card" key={itm.id} style={{ padding: '25px' }}  >
 
                             <h1 >{itm.item}</h1>
-                            <p>{itm.date}</p>
                             <p>{itm.description}</p>
-                            <p><strong>{itm.location}</strong></p>
+                            <p><strong>{itm.zip_id}</strong></p>
                             
 
                         </div>

@@ -24,7 +24,7 @@ const ProfilePage = () => {
                             marginTop: "50px"
                         }}>
                     </div> */}
-                    {/* <CardImg style = {{width:'100%', margin:'0 auto', height:'200px'}} src={require ('../assets/img4.jpg')}/> */}
+                    <CardImg style = {{width:'100%', margin:'0 auto', height:'200px'}} src={require ('../assets/img4.jpg')}/>
                     <Input type="file" style={{ marginTop: "200px", margin: "15%" }} />
                 </Card>
                 

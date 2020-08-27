@@ -16,7 +16,7 @@ const Items = (props) => {
     const id = useParams ()
     useEffect (() => {
         axios
-        .get(`/posts/filter?${id.id}`)
+        .get(`/posts/`)
         .then (response => {
             console.log(response.data);
             setIssues(response.data)
@@ -28,15 +28,15 @@ const Items = (props) => {
         return <div>Loading products...</div>;
       }
     
-      const { id, name, date, description, zip_id} = issues;
+      const { id, name, description, zip_id} = issues;
 
     return (
         <div className = "item-wrapper">
             <div classname = "item-card">
                 <h2>{name}</h2>
-                {date.map(item => (
+                {/* {date.map(item => (
                 <div key = {date} className ="list-item">
-                    {date}
+                    {date} */}
                     </div>
             ))}
 
