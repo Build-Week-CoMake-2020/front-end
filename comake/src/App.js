@@ -8,7 +8,7 @@ import ProfilePage from './components/ProfilePage';
 import IssuesList from './components/IssuesList';
 import PrivateRoute from './utils/PrivateRoute';
 import { IssueProvider } from './components/context/IssueContext';
-import index from '/index.css';
+
 import axios from 'axios'
 
 const App = () => {
@@ -28,10 +28,11 @@ const App = () => {
         <Navbar>
             {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
             <Nav>
-                <NavItem>
-                    <Link style = {{padding: '10px', fontSize: '3rem', color: 'black'}} to='/'>Home</Link>
-                    <Link style = {{padding: '10px', fontSize: '3rem', color: 'black'}} to='/signup'> SignUp</Link>
-                    <Link style = {{padding: '10px', fontSize: '3rem', color: 'black'}} to='/login'> Login </Link>
+                <NavItem style = {{textAlign: ' center'}}>
+                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/'>Home</Link>
+                    <Link style = {{padding: '10px', textDecoration: 'none',fontSize: '5rem', color: 'coral'}} to='/signup'> SignUp</Link>
+                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/login'> Login </Link>
+                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/ProfilePage.'> Profile </Link>
                 </NavItem>
             </Nav>
       </Navbar>

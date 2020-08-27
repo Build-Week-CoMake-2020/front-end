@@ -9,7 +9,7 @@ export default function SignUp() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    address: "",
+    password: "",
     terms: true
   });
 
@@ -24,7 +24,7 @@ export default function SignUp() {
   const [errors, setErrors] = useState({
     name: "", 
     email: "",
-    address: "",
+    password: "",
     terms: ""
   });
 
@@ -74,7 +74,7 @@ export default function SignUp() {
         setFormState({
           name: "",
           email: "",
-          address: "",
+          password: "",
          
           terms: true
         });
@@ -109,9 +109,9 @@ export default function SignUp() {
       .string()
       .email("Must be a valid email")
       .required("Must include an email"),
-    address: yup
+    password: yup
     .string()
-    .required("Must include why you wanna join"),
+    .required("Must include password"),
     
     terms: yup.boolean().oneOf([true], "Please agree to T&Cs")
   });
@@ -127,12 +127,12 @@ export default function SignUp() {
   return (
     <Form onSubmit={formSubmit}>
       {serverError ? <p className="error">{serverError}</p> : null}
-      <FormGroup style= {{margin:'0 auto', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
+      <FormGroup style= {{margin:'0 auto',fontSize:'3rem', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
                 <legend style= {{margin:'0 auto', marginBottom: '30px', postion: 'flex'}}>Login</legend>
             </FormGroup>
-      <label htmlFor="name">
+      <Label htmlFor="name">
         Name
-        <input
+        <Input
           id="name"
           type="text"
           name="name"
@@ -140,10 +140,10 @@ export default function SignUp() {
           onChange={inputChange}
         />
         {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
-      </label>
-      <label htmlFor="email">
+      </Label>
+      <Label htmlFor="email">
         Email
-        <input
+        <Input
           id="email"
           type="text"
           name="email"
@@ -153,22 +153,23 @@ export default function SignUp() {
         {errors.email.length > 0 ? (
           <p className="error">{errors.email}</p>
         ) : null}
-      </label>
-      <label htmlFor="address">
-        Address
-        <textarea
-          id="address"
-          name="address"
-          value={formState.address}
+      </Label>
+      <Label htmlFor="password">
+        Password
+        <Input
+          id="password"
+          type = 'password'
+          name="password"
+          value={formState.password}
           onChange={inputChange}
         />
-        {errors.motivation.length > 0 ? (
-          <p className="error">{errors.address}</p>
+        {errors.password.length > 0 ? (
+          <p className="error">{errors.password}</p>
         ) : null}
-      </label>
+      </Label>
       
-      <label htmlFor="terms" className="terms">
-        <input
+      <Label htmlFor="terms" className="terms">
+        <Input
           type="checkbox"
           id="terms"
           name="terms"
@@ -179,11 +180,11 @@ export default function SignUp() {
         {errors.terms.length > 0 ? (
           <p className="error">{errors.terms}</p>
         ) : null}
-      </label>
+      </Label>
       <Link to = '/login'>
-      <button disabled={buttonDisabled} type="submit" onClick = {() => history.push('/login')}>
+      <Button disabled={buttonDisabled} type="submit"   to = '/login'>
         Submit
-      </button>
+      </Button>
       </Link>
       <pre>{JSON.stringify(post, null, 2)}</pre>
     </Form>

@@ -46,19 +46,19 @@ const Login = () => {
     
     return (
 
-        <>
-            <Form onSubmit={handleSubmit}
-            style = {{width: '40%', margin:'0 auto', border:'2px solid black', marginTop: '10px', backgroundColor:'#303030', color:'white', padding: '25px'}}>
+        
+            <Form onSubmit={handleSubmit}>
+            
             <FormGroup style= {{margin:'0 auto', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
                 <legend style= {{margin:'0 auto', marginBottom: '30px', postion: 'flex'}}>Login</legend>
             </FormGroup>
                  {/* <h2>Log in to add new items</h2> */}
                  <FormGroup>
-                <Input placeholder="Email: Mark@email.com " type='email' name='email' onChange={handleChange} style={{ width: '75%', margin: '20px auto'}}></Input>
+                <Input placeholder="Email " type='email' name='email' onChange={handleChange} style={{ width: '75%', margin: '20px auto'}}></Input>
                 </FormGroup>
 
                 <FormGroup>
-                <Input placeholder="Password: 1234" type='password' name='password' onChange={handleChange} style={{ width: '75%', margin: '20px auto' }}></Input>
+                <Input placeholder="Password" type='password' name='password' onChange={handleChange} style={{ width: '75%', margin: '20px auto' }}></Input>
                 </FormGroup>
                 
                 <Button style = {{marginLeft:'85px'}}>login</Button>
@@ -68,7 +68,7 @@ const Login = () => {
             </Form>
 
 
-        </>
+        
     )
 }
 export default Login;
