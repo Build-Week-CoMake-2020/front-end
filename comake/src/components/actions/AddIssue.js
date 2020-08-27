@@ -41,7 +41,7 @@ function AddIssue() {
         <>
         <form onSubmit={addProduct}>
             <input placeholder="Item name" type="text" name="name" value={name} onChange={updateName} />
-            <input placeholder="date" type="text" name="price" value={date} onChange={updateDate} />
+            <input placeholder="date" type="text" name="date" value={date} onChange={updateDate} />
             <input placeholder="Location" type="text" name="location" value={location} onChange={updateLocation} />
             <input placeholder="Description" type="text" name="description" value={description} onChange={updateDescription} />
             <button>Submit</button>

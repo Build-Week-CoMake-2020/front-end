@@ -16,7 +16,7 @@ const Items = (props) => {
     const id = useParams ()
     useEffect (() => {
         axios
-        .get(`https://amp-node-api.herokuapp.com/api/${id.id}`)
+        .get(`/posts/filter?${id.id}`)
         .then (response => {
             console.log(response.data);
             setProducts(response.data)

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-// import Login from "./Login";
+import Login from "./Login";
 import { IssueContext } from './context/IssueContext'
 // import AddIssue from './actions/AddIssue'
 // const CardRow = styled.div`
@@ -11,24 +11,24 @@ function IssuesList(props) {
     return (
         <>
             
-        {/* <div className="items-list-wrapper">
+        <div className="items-list-wrapper">
             {props.items.map(itm => {
                 return (
-                    // <Link exact to={<Login />}>
+                    <Link exact to={<Login />}>
 
-                    //     <div className="item-card" key={itm.id} style={{ padding: '25px' }}  >
+                        <div className="item-card" key={itm.id} style={{ padding: '25px' }}  >
 
-                    //         <h1 >{itm.item}</h1>
-                    //         <p>${itm.data}</p>
-                    //         <p>{itm.description}</p>
-                    //         <p><strong>{itm.location}</strong></p>
+                            <h1 >{itm.item}</h1>
+                            <p>{itm.date}</p>
+                            <p>{itm.description}</p>
+                            <p><strong>{itm.location}</strong></p>
                             
 
-                    //     </div>
-                    // </Link>
+                        </div>
+                    </Link>
                 );
             })}
-        </div> */}
+        </div>
         </>
     );
 }

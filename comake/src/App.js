@@ -15,9 +15,9 @@ const App = () => {
   const [issues, setIssues] = useState([]);
   useEffect(() => {
     axios
-      .get('https://amp-node-api.herokuapp.com/api')
+      .get('/posts/')
       .then(response => {
-        console.log(response.data);
+        console.log('get', response.data);
         setIssues(response.data)
       })
       .catch(error => console.log("Error!", error))
