@@ -4,12 +4,26 @@ import { CardTitle, Card, Input, Button, FormGroup, CardImg} from 'reactstrap';
 import { Route, Link } from 'react-router-dom'
 import IssuesList from './IssuesList';
 import OwnerList from './OwnerList';
-// import axiosAuth from './utils/axiosAuth'
+import axiosAuth from '../utils/axiosAuth'
 import { IssueContext } from '../components/context/IssueContext'
 
+
+const deleteIssue = issue => {
+    axiosAuth()
+    .delete(`/posts/${issue.id}`, issue)    //delete
+    .then(res => {
+      window.location.reload(true);
+      // console.log(res.data)
+      // updateIssues(issue.filter((item) => item.id !== colorToEdit.id))
+      
+    })
+    // make a delete request to delete this issue
+  };
 const ProfilePage = () => {
-    const [products, setProducts] = useContext(IssueContext)
+    const [issues, setIssues] = useContext(IssueContext)
+   
     
+
     return (
         <div style={{ backgroundColor: '#e74c3d' }}>
             <div className='header' style={{ display: 'flex' }}>
@@ -39,17 +53,21 @@ const ProfilePage = () => {
                     </FormGroup>
                 </Link>
                 <Link to='/DeleteItem'>
-                    <FormGroup style={{padding:'10px'}}>
-                    <Button>Delete Issue</Button>
-                    </FormGroup>
+                    {/* <FormGroup style={{padding:'10px'}}>
+                    <Button onClick = { e => {
+                        e.stopPropagation();
+                        console.log(issues)
+                        deleteIssue(issues)}}>Delete Issue</Button>
+                    </FormGroup> */}
                 </Link>
+                
 
             </div>
             <br />
             <Card>
 
                 <div className="items-list-wrapper">
-                    <IssuesList items={products} />
+                    <IssuesList items={issues} />
                 </div>
             </Card>
 

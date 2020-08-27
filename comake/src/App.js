@@ -26,20 +26,29 @@ const App = () => {
   return (
     <IssueProvider>
     <Router>
-        <Navbar class="navbar-toggler">
-            {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
-            <Nav>
-                <NavItem>
-                    <Link style = {{padding: '10px', color: 'black' }} to='/'>Home</Link>
-                    <Link style = {{padding: '10px', color: 'black'}} to='/signup'> SignUp</Link>
-                    <Link style = {{padding: '10px', color: 'black'}} to='/login'> Login </Link>
-                </NavItem>
-            </Nav>
-      </Navbar>
+        
       <div style={{backgroundColor:'#e74c3d'}}>
             <Jumbotron fluid style={{backgroundColor:'#F56A6A'}}>
+           
                 <Container>
                     <h1 className='display-3' style={{color:'#fff'}}><span style={{fontFamily:'Monoton', color:'#e74c3d'}}></span> Neighborli</h1>
+                {/* <button type="button" style = {{ marginLeft: '20px', marginRight:'20px'}}class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button> */}
+                    {/* <button type="button" class="btn btn-tw"><i class="fab fa-twitter pr-1"></i> Twitter</button> */}
+                    <Navbar class="navbar-toggler">
+            {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
+            <Nav>
+                
+                    <Link style = {{padding: '30px', color: 'black', marginLeft:'300px' }} to='/'>
+                      <button>Home</button></Link>
+                    <Link style = {{padding: '30px', color: 'black'}} to='/signup'> 
+                    <button>SignUp</button></Link>
+                    <Link style = {{padding: '30px', color: 'black'}} to='/login'> 
+                    <button>Login </button></Link>
+               
+            </Nav>
+      </Navbar>
+                    
+                    
                 </Container>
             </Jumbotron>
 

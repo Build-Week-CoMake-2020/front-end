@@ -82,7 +82,8 @@ function AddIssue() {
                             {/* <p>{itm.date}</p> */}
                     <button onClick = { e => {
                         e.stopPropagation();
-                        deleteIssue (issues)}}> X</button>
+                        console.log(itm)
+                        deleteIssue(itm)}}> X</button>
                         </div>
                     
                         

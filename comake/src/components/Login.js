@@ -25,7 +25,7 @@ const Login = () => {
            .post('/auth/login', loginData)
             .then((res) => {
                 
-                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("token", `Bearer ${res.data.token}`);
                 push("/ProfilePage");
 
             })

@@ -5,6 +5,7 @@ import { useParams, Route, useRouteMatch, Link } from 'react-router-dom';
 import axios from 'axios'
 import Card from './itemCard'
 import ItemList from './ItemList';
+import axiosAuth from '../utils/axiosAuth';
 
 
 
@@ -15,7 +16,7 @@ const Items = (props) => {
 
     const id = useParams ()
     useEffect (() => {
-        axios
+        axiosAuth
         .get(`/posts/`)
         .then (response => {
             console.log(response.data);
@@ -24,7 +25,7 @@ const Items = (props) => {
         .catch(error => console.log("Error!", error))
     }, [id]);
     
-    if (!products) {
+    if (!issues) {
         return <div>Loading products...</div>;
       }
     
@@ -52,7 +53,7 @@ const Items = (props) => {
    
        
      
-        </div>
+       
     )
    }
 export default Items;
