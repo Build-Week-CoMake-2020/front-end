@@ -32,7 +32,7 @@ const App = () => {
                     <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/'>Home</Link>
                     <Link style = {{padding: '10px', textDecoration: 'none',fontSize: '5rem', color: 'coral'}} to='/signup'> SignUp</Link>
                     <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/login'> Login </Link>
-                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/ProfilePage.'> Profile </Link>
+                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/issues'> Profile </Link>
                 </NavItem>
             </Nav>
       </Navbar>

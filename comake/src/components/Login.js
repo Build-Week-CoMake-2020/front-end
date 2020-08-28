@@ -60,11 +60,12 @@ const Login = () => {
                 <FormGroup>
                 <Input placeholder="Password" type='password' name='password' onChange={handleChange} style={{ width: '75%', margin: '20px auto' }}></Input>
                 </FormGroup>
-                
-                <Button style = {{marginLeft:'85px'}}>login</Button>
+                {/*<Link to ='/profilepage'>*/}
+                <Button style = {{marginLeft:'85px'}} type='submit' to='/profilepage' >login</Button>
                 {/* <Link to ='/ListPage'>
                 
                 </Link> */}
+                {/*/</Link>*/}
             </Form>
 
 

@@ -10,6 +10,7 @@ export default function SignUp() {
     name: "",
     email: "",
     password: "",
+    confirm: '',
     terms: true
   });
 
@@ -25,6 +26,7 @@ export default function SignUp() {
     name: "", 
     email: "",
     password: "",
+    confirm:'',
     terms: ""
   });
 
@@ -75,6 +77,7 @@ export default function SignUp() {
           name: "",
           email: "",
           password: "",
+          confirm: '',
          
           terms: true
         });
@@ -112,6 +115,9 @@ export default function SignUp() {
     password: yup
     .string()
     .required("Must include password"),
+    confirm: yup
+    .string()
+    .required("Must confrim password"),
     
     terms: yup.boolean().oneOf([true], "Please agree to T&Cs")
   });
@@ -165,6 +171,20 @@ export default function SignUp() {
         />
         {errors.password.length > 0 ? (
           <p className="error">{errors.password}</p>
+        ) : null}
+      </Label>
+
+      <Label htmlFor="confirm">
+        Confirm Password
+        <Input
+          id="confirm"
+          type = 'password'
+          name="confirm"
+          value={formState.confirm}
+          onChange={inputChange}
+        />
+        {errors.confirm.length > 0 ? (
+          <p className="error">{errors.confirm}</p>
         ) : null}
       </Label>
       
