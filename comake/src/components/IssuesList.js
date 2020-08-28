@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import Login from "./Login";
 import { IssueContext } from './context/IssueContext'
 import axiosAuth from '../utils/axiosAuth'
-
+import { useParams, useHistory } from "react-router-dom";
 // import AddIssue from './actions/AddIssue'
 // const CardRow = styled.div`
 // display:flex;`;
+
 const deleteIssue = issue => {
     axiosAuth()
-    .delete(`/posts/${issue.id}`, issue)    //delete
+    .delete(`/posts/${issue.id}`)    //delete
     .then(res => {
       window.location.reload(true);
       // console.log(res.data)
@@ -33,12 +34,13 @@ function IssuesList(props) {
 
                             <h1 >{itm.item}</h1>
                             <p>{itm.description}</p>
+                            <p>{itm.id}</p>
                             <p><strong>{itm.zip_id}</strong></p>
                             
                     <button onClick = { e => {
                         e.stopPropagation();
-                        console.log(issues)
-                        delete(issues.id)}}>Delete Issue</button>
+                        console.log("HAVING ISSUES",issues)
+                        deleteIssue(issues.id)}}>Delete Issue</button>
                    
                         </div>
                     </Link>

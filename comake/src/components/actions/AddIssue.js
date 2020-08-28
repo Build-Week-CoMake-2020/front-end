@@ -41,17 +41,7 @@ function AddIssue() {
             .post(`/posts/create`, newIssue)
             .then(res => setNewIssue(res.data.data).history.push('/ProfilePage'));
     }
-    const deleteIssue = issue => {
-        axiosAuth()
-        .delete(`/posts/${issue.id}`, issue)    //delete
-        .then(res => {
-          window.location.reload(true);
-          // console.log(res.data)
-          // updateIssues(issue.filter((item) => item.id !== colorToEdit.id))
-          
-        })
-        // make a delete request to delete this issue
-      };
+  
     return (
         <>
         <Form onSubmit={addProduct}>
@@ -80,10 +70,7 @@ function AddIssue() {
                             <p>{itm.description}</p>
                             <p><strong>{itm.zip_id}</strong></p>
                             {/* <p>{itm.date}</p> */}
-                    <button onClick = { e => {
-                        e.stopPropagation();
-                        console.log(itm)
-                        deleteIssue(itm)}}> X</button>
+                    
                         </div>
                     
                         
