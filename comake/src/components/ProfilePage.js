@@ -8,17 +8,17 @@ import axiosAuth from '../utils/axiosAuth'
 import { IssueContext } from '../components/context/IssueContext'
 
 
-const deleteIssue = issue => {
-    axiosAuth()
-    .delete(`/posts/${issue.id}`, issue)    //delete
-    .then(res => {
-      window.location.reload(true);
-      // console.log(res.data)
-      // updateIssues(issue.filter((item) => item.id !== colorToEdit.id))
+// const deleteIssue = issue => {
+//     axiosAuth()
+//     .delete(`/posts/${issue.id}`, issue)    //delete
+//     .then(res => {
+//       window.location.reload(true);
+//       // console.log(res.data)
+//       // updateIssues(issue.filter((item) => item.id !== colorToEdit.id))
       
-    })
-    // make a delete request to delete this issue
-  };
+//     })
+//     // make a delete request to delete this issue
+//   };
 const ProfilePage = () => {
     const [issues, setIssues] = useContext(IssueContext)
    
@@ -52,12 +52,12 @@ const ProfilePage = () => {
                     </FormGroup>
                 </Link>
                 
-                    <FormGroup style={{padding:'10px'}}>
+                    {/* <FormGroup style={{padding:'10px'}}>
                     <Button onClick = { e => {
                         e.stopPropagation();
                         console.log(issues)
-                        deleteIssue(issues)}}>Delete Issue</Button>
-                    </FormGroup>
+                        delete(issues.id)}}>Delete Issue</Button>
+                    </FormGroup> */}
             
             </div>
             <br />
@@ -65,6 +65,7 @@ const ProfilePage = () => {
 
                 <div className="items-list-wrapper">
                     <IssuesList items={issues} />
+                    
                 </div>
             </Card>
 

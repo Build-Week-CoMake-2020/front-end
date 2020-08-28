@@ -34,7 +34,7 @@ const App = () => {
                     <h1 className='display-3' style={{color:'#fff'}}><span style={{fontFamily:'Monoton', color:'#e74c3d'}}></span> Neighborli</h1>
                 {/* <button type="button" style = {{ marginLeft: '20px', marginRight:'20px'}}class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button> */}
                     {/* <button type="button" class="btn btn-tw"><i class="fab fa-twitter pr-1"></i> Twitter</button> */}
-                    <Navbar class="navbar-toggler">
+                    <Navbar className="navbar-toggler">
             {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
             <Nav>
                 
