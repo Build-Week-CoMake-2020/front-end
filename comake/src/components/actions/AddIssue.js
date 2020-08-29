@@ -2,79 +2,87 @@ import React, { useState, useContext } from 'react'
 import { IssueContext } from '../context/IssueContext'
 import axiosAuth from '../../utils/axiosAuth'
 import { useHistory, Link } from 'react-router-dom'
-import { CardTitle, Card, Input, Button, FormGroup, CardImg, Form} from 'reactstrap';
 // import DeleteItem from './DeleteItems'
 
 
 function AddIssue() {
     const  push  = useHistory()
     const [name, setName] = useState('');
-    // const [date, setDate] = useState('');
+    const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
-    const [zip_id, setZip_id] = useState('');
+    const [location, setLocation] = useState('');
     const [newIssue, setNewIssue] = useState('')
     const [issues, setIssues] = useContext(IssueContext);
 
    // console.log("here is my added item ", products)
-   const initialIssue = {
-    issue: "",
-    description: ""
-  };
+
 
     const updateName = e => {
         setName(e.target.value)
         //capture event, target and value from the inputs
     }
-    // const updateDate = e => {
-    //     setDate(e.target.value)
-    // }
+    const updateDate = e => {
+        setDate(e.target.value)
+    }
     const updateDescription = e => {
         setDescription(e.target.value)
     }
     const updateLocation = e => {
-        setZip_id(e.target.value)
+        setLocation(e.target.value)
     }
+
     const addProduct = e => {
         e.preventDefault();
-        setIssues(prevIssues => setIssues([...prevIssues, { item: name, description: description, zip_id: zip_id }]))
+        setIssues(prevIssues => setIssues([...prevIssues, { item: name, description: description, location: location }]))
         axiosAuth()
             .post(`/posts/create`, newIssue)
-            .then(res => setNewIssue(res.data.data).history.push('/ProfilePage'));
+            .then(res => setNewIssue(res.data.data).history.push('/Profilepage'));
     }
-  
     return (
         <>
-        <Form onSubmit={addProduct}>
-            <input placeholder="Issue name" type="text" name="name" value={name} onChange={updateName} />
-            {/* <input placeholder="date" type="text" name="date" value={date} onChange={updateDate} /> */}
-            <input placeholder="Location" type="text" name="zip_id" value={zip_id} onChange={updateLocation} />
-            <input placeholder="Description" type="text" name="description" value={description} onChange={updateDescription} />
-          
-        <Button >Submit</Button>
+        <form onSubmit={addProduct}>
+            <br></br>
+            <input placeholder="Item name" 
+            type="text" 
+            name="name" 
+            value={name} 
+            onChange={updateName} />
 
-            {/* <button>Submit</button>  */}
-            <Link to = '/ProfilePage'>
-               
-            <button>Back to ProfilePage</button>
-            
-          </Link>
-          
-        </Form>
-        <div className="issues-list-wrapper">
+            <br></br>
+
+            <input 
+            placeholder="Location" 
+            type="text" 
+            name="location" 
+            value={location} 
+            onChange={updateLocation} />
+            <br></br>
+
+            <input 
+            placeholder="Description" 
+            type="text" 
+            name="description" 
+            value={description} 
+            onChange={updateDescription} />
+
+            <button>Submit</button>
+            <span>
+            <Link to='/ProfilePage'>
+            <button>Back To Profile Page</button>
+            </Link>
+            </span>
+
+        </form>
+        <div className="items-list-wrapper">
                 {issues.map(itm => {
                 return (
-   
-                    
+
                         <div className="item-card" key={itm.id} style={{ padding: '25px' }}  >
                             <h1 >{itm.item}</h1>
                             <p>{itm.description}</p>
-                            <p><strong>{itm.zip_id}</strong></p>
-                            {/* <p>{itm.date}</p> */}
-                    
+                            <p><strong>{itm.location}</strong></p>
+                            
                         </div>
-                    
-                        
-                              
                 );
             })}
         </div>

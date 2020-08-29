@@ -7,12 +7,25 @@ import { useParams, useHistory } from "react-router-dom";
 // import AddIssue from './actions/AddIssue'
 // const CardRow = styled.div`
 // display:flex;`;
+function IssuesList(props) {
+    const [issues, setIssues] = useContext(IssueContext);
 
 const deleteIssue = issue => {
     axiosAuth()
     .delete(`/posts/${issue.id}`)    //delete
     .then(res => {
-      window.location.reload(true);
+        console.log(res);
+        axiosAuth()
+        .get("/posts/")
+        .then(res => {
+            console.log(res);
+            setIssues(res.data.issue);
+        })
+        .catch(err=> {
+            console.log(err)
+        });
+    
+      //window.location.reload(true);
       // console.log(res.data)
       // updateIssues(issue.filter((item) => item.id !== colorToEdit.id))
       
@@ -20,8 +33,7 @@ const deleteIssue = issue => {
     // make a delete request to delete this issue
   };
 
-function IssuesList(props) {
-    const [issues, setIssues] = useContext(IssueContext);
+
     return (
         <>
             

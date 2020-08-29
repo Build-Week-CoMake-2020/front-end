@@ -10,7 +10,7 @@ import PrivateRoute from './utils/PrivateRoute';
 import { IssueProvider } from './components/context/IssueContext';
 import axios from 'axios'
 import IssueList from './components/IssueList'
-
+//import GetIssues from './components/issues/GetIssues'
 
 const App = () => {
   const [issues, setIssues] = useState([]);
@@ -81,6 +81,7 @@ const App = () => {
       <Switch>
         <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
         <Route exact path="/login" render={(props) => <Login {...props} />} />
+        {/* <PrivateRoute exact path="/issues" component={GetIssues} /> */}
       </Switch>
     </Router>
     </IssueProvider>

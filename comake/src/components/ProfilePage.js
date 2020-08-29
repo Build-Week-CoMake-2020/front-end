@@ -5,7 +5,7 @@ import { Route, Link } from 'react-router-dom'
 import IssuesList from './IssuesList';
 import OwnerList from './OwnerList';
 import axiosAuth from '../utils/axiosAuth'
-import { IssueContext } from '../components/context/IssueContext'
+import { IssueContext } from './context/IssueContext'
 
 
 // const deleteIssue = issue => {

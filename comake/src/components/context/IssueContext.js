@@ -24,4 +24,3 @@ export const IssueProvider = props => {
         </IssueContext.Provider>
     )
 }
-
