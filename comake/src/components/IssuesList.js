@@ -10,16 +10,16 @@ import { useParams, useHistory } from "react-router-dom";
 function IssuesList(props) {
     const [issues, setIssues] = useContext(IssueContext);
 
-const deleteIssue = issue => {
+const deleteIssue = id => {
     axiosAuth()
-    .delete(`/posts/${issue.id}`)    //delete
+    .delete(`/posts/${id}`)    //delete
     .then(res => {
         console.log(res);
         axiosAuth()
         .get("/posts/")
         .then(res => {
             console.log(res);
-            setIssues(res.data.issue);
+            setIssues(res.data.data);
         })
         .catch(err=> {
             console.log(err)
@@ -50,9 +50,9 @@ const deleteIssue = issue => {
                             <p><strong>{itm.zip_id}</strong></p>
                             
                     <button onClick = { e => {
-                        e.stopPropagation();
+                        //e.stopPropagation();
                         console.log("HAVING ISSUES",issues)
-                        deleteIssue(issues.id)}}>Delete Issue</button>
+                        deleteIssue(itm.id)}}>Delete Issue</button>
                    
                         </div>
                     </Link>

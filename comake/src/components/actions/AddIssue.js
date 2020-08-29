@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { IssueContext } from '../context/IssueContext'
 import axiosAuth from '../../utils/axiosAuth'
 import { useHistory, Link } from 'react-router-dom'
@@ -30,7 +30,17 @@ function AddIssue() {
     const updateLocation = e => {
         setLocation(e.target.value)
     }
-
+// useEffect(() => {
+//     axiosAuth()
+//     .get("/posts/")
+//     .then(res => {
+//         console.log(res);
+//         setIssues(res.data.issue)
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+//})
     const addProduct = e => {
         e.preventDefault();
         setIssues(prevIssues => setIssues([...prevIssues, { item: name, description: description, location: location }]))
