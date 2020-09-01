@@ -28,6 +28,7 @@ export default function UpdateIssue ({ issues, setDependency }) {
 
     .catch(err => 
       console.log(err))
+      
     // Make a put request to save your updated issue
     // think about where will you get the id from...
     // where is is saved right now?
@@ -43,27 +44,38 @@ export default function UpdateIssue ({ issues, setDependency }) {
             Issue Title:
             <input
               onChange={e =>
+        
                 setIssueToEdit({ ...issueToEdit, issue: e.target.value })
               }
               value={issueToEdit.issue}
+              
             />
+            
           </label>
 
           <label>
               Description:
                 <input 
                  onChange={e =>
+                  
                   setIssueToEdit({ ...issueToEdit, description: e.target.value })
+                
                     }
-                    value={issueToEdit.description}
+                    
+                    value={issueToEdit.description
+                    }
                      />
                      
                     </label>
                     
           <div className="button-row">
-        
-            <button type="submit">save</button>
-            <button onClick={() => setEditing(false)}>cancel</button>
+          
+            <button onClick ={() => {
+              console.log(issueToEdit)}}
+              type="submit">save</button>
+            
+            <button onClick={() => 
+              setEditing(false)}>cancel</button>
           </div>
         </form>
       {/* )} */}
