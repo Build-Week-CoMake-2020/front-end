@@ -57,7 +57,9 @@ export default function UpdateIssue ({ issues, setDependency }) {
                     }
                     value={issueToEdit.description}
                      />
+                     
                     </label>
+                    
           <div className="button-row">
         
             <button type="submit">save</button>
