@@ -9,8 +9,7 @@ import IssuesList from './components/IssuesList';
 import PrivateRoute from './utils/PrivateRoute';
 import { IssueProvider } from './components/context/IssueContext';
 import axios from 'axios'
-import IssueList from './components/IssueList'
-//import GetIssues from './components/issues/GetIssues'
+
 
 const App = () => {
   const [issues, setIssues] = useState([]);

@@ -206,6 +206,11 @@ export default function SignUp() {
         Submit
       </Button>
       </Link>
+      <Link to = '/login'>
+      <p className="forgot-password text-right">
+                Already registered <a href="#">sign in?</a>
+            </p>
+            </Link>
       <pre>{JSON.stringify(post, null, 2)}</pre>
     </Form>
   );
