@@ -7,7 +7,7 @@ export const IssueProvider = props => {
     const [issues, setIssues] = useState([])
     useEffect(() => {
         axiosAuth()
-            .get("dashboard")
+            .get("/posts/")
             .then(response => {
                 setIssues(response.data);
                 console.log(response.data);
@@ -24,4 +24,3 @@ export const IssueProvider = props => {
         </IssueContext.Provider>
     )
 }
-

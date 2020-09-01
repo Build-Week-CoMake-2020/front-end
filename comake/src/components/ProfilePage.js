@@ -4,11 +4,24 @@ import { CardTitle, Card, Input, Button, FormGroup, CardImg} from 'reactstrap';
 import { Route, Link } from 'react-router-dom'
 import IssuesList from './IssuesList';
 import OwnerList from './OwnerList';
-// import axiosAuth from './utils/axiosAuth'
-import { IssueContext } from '../components/context/IssueContext'
+import axiosAuth from '../utils/axiosAuth'
+import { IssueContext } from './context/IssueContext'
 
+
+// const deleteIssue = issue => {
+//     axiosAuth()
+//     .delete(`/posts/${issue.id}`, issue)    //delete
+//     .then(res => {
+//       window.location.reload(true);
+//       // console.log(res.data)
+//       // updateIssues(issue.filter((item) => item.id !== colorToEdit.id))
+      
+//     })
+//     // make a delete request to delete this issue
+//   };
 const ProfilePage = () => {
-    const [products, setProducts] = useContext(IssueContext)
+    const [issues, setIssues] = useContext(IssueContext)
+   
     
     return (
         <div style={{ backgroundColor: '#e74c3d' }}>
@@ -24,7 +37,7 @@ const ProfilePage = () => {
                             marginTop: "50px"
                         }}>
                     </div> */}
-                    {/* <CardImg style = {{width:'100%', margin:'0 auto', height:'200px'}} src={require ('../assets/img4.jpg')}/> */}
+                    <CardImg style = {{width:'100%', margin:'0 auto', height:'200px'}} src={require ('../assets/img4.jpg')}/>
                     <Input type="file" style={{ marginTop: "200px", margin: "15%" }} />
                 </Card>
                 
@@ -33,30 +46,28 @@ const ProfilePage = () => {
                 </CardTitle> */}
                 <hr />
 
-                <Link to='/AddItems'>
+                <Link to='/AddIssue'>
                     <FormGroup style={{padding:'10px'}}>
                     <Button >Add Issue</Button>
                     </FormGroup>
                 </Link>
-                <Link to='/DeleteItem'>
-                    <FormGroup style={{padding:'10px'}}>
-                    <Button>Delete Issue</Button>
-                    </FormGroup>
-                </Link>
-
+                
+                    {/* <FormGroup style={{padding:'10px'}}>
+                    <Button onClick = { e => {
+                        e.stopPropagation();
+                        console.log(issues)
+                        delete(issues.id)}}>Delete Issue</Button>
+                    </FormGroup> */}
+            
             </div>
             <br />
             <Card>
 
                 <div className="items-list-wrapper">
-                    <IssuesList items={products} />
+                    <IssuesList items={issues} />
+                    
                 </div>
             </Card>
-
-
-
-
-
 
         </div>
 

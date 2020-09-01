@@ -8,16 +8,17 @@ import ProfilePage from './components/ProfilePage';
 import IssuesList from './components/IssuesList';
 import PrivateRoute from './utils/PrivateRoute';
 import { IssueProvider } from './components/context/IssueContext';
-
 import axios from 'axios'
+import IssueList from './components/IssueList'
+//import GetIssues from './components/issues/GetIssues'
 
 const App = () => {
   const [issues, setIssues] = useState([]);
   useEffect(() => {
     axios
-      .get('https://amp-node-api.herokuapp.com/api')
+      .get('/posts/')
       .then(response => {
-        console.log(response.data);
+        console.log('get', response.data);
         setIssues(response.data)
       })
       .catch(error => console.log("Error!", error))
@@ -25,21 +26,29 @@ const App = () => {
   return (
     <IssueProvider>
     <Router>
-        <Navbar>
-            {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
-            <Nav>
-                <NavItem style = {{textAlign: ' center'}}>
-                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/'>Home</Link>
-                    <Link style = {{padding: '10px', textDecoration: 'none',fontSize: '5rem', color: 'coral'}} to='/signup'> SignUp</Link>
-                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/login'> Login </Link>
-                    <Link style = {{padding: '10px', textDecoration: 'none', fontSize: '5rem', color: 'coral'}} to='/issues'> Profile </Link>
-                </NavItem>
-            </Nav>
-      </Navbar>
+
       <div style={{backgroundColor:'#e74c3d'}}>
             <Jumbotron fluid style={{backgroundColor:'#F56A6A'}}>
+           
                 <Container>
                     <h1 className='display-3' style={{color:'#fff'}}><span style={{fontFamily:'Monoton', color:'#e74c3d'}}></span> Neighborli</h1>
+                {/* <button type="button" style = {{ marginLeft: '20px', marginRight:'20px'}}class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button> */}
+                    {/* <button type="button" class="btn btn-tw"><i class="fab fa-twitter pr-1"></i> Twitter</button> */}
+                    <Navbar className="navbar-toggler">
+            {/* <NavbarBrand><Link to='/'>Neghborli</Link></NavbarBrand> */}
+            <Nav>
+                
+                    <Link style = {{padding: '30px', color: 'black', marginLeft:'300px' }} to='/'>
+                      <button>Home</button></Link>
+                    <Link style = {{padding: '30px', color: 'black'}} to='/signup'> 
+                    <button>SignUp</button></Link>
+                    <Link style = {{padding: '30px', color: 'black'}} to='/login'> 
+                    <button>Login </button></Link>
+               
+            </Nav>
+      </Navbar>
+                    
+                    
                 </Container>
             </Jumbotron>
 
@@ -65,12 +74,14 @@ const App = () => {
          <IssuesList items= {issues}/>
        </Route>
 
+       
        {/* <Route exact path = '/ListPage'>
       <ListPage />
       </Route>  */}
       <Switch>
         <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
         <Route exact path="/login" render={(props) => <Login {...props} />} />
+        {/* <PrivateRoute exact path="/issues" component={GetIssues} /> */}
       </Switch>
     </Router>
     </IssueProvider>

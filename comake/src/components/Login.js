@@ -25,7 +25,7 @@ const Login = () => {
            .post('/auth/login', loginData)
             .then((res) => {
                 
-                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("token", `Bearer ${res.data.token}`);
                 push("/ProfilePage");
 
             })
@@ -46,14 +46,17 @@ const Login = () => {
     
     return (
 
+
         
             <Form onSubmit={handleSubmit}>
             
+
             <FormGroup style= {{margin:'0 auto', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
                 <legend style= {{margin:'0 auto', marginBottom: '30px', postion: 'flex'}}>Login</legend>
             </FormGroup>
                  {/* <h2>Log in to add new items</h2> */}
                  <FormGroup>
+
                 <Input placeholder="Email " type='email' name='email' onChange={handleChange} style={{ width: '75%', margin: '20px auto'}}></Input>
                 </FormGroup>
 
@@ -62,6 +65,7 @@ const Login = () => {
                 </FormGroup>
                 {/*<Link to ='/profilepage'>*/}
                 <Button style = {{marginLeft:'85px'}} type='submit' to='/profilepage' >login</Button>
+
                 {/* <Link to ='/ListPage'>
                 
                 </Link> */}

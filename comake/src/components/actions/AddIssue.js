@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { IssueContext } from '../context/IssueContext'
 import axiosAuth from '../../utils/axiosAuth'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 // import DeleteItem from './DeleteItems'
 
 
@@ -30,21 +30,58 @@ function AddIssue() {
     const updateLocation = e => {
         setLocation(e.target.value)
     }
+// useEffect(() => {
+//     axiosAuth()
+//     .get("/posts/")
+//     .then(res => {
+//         console.log(res);
+//         setIssues(res.data.issue)
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+//})
     const addProduct = e => {
         e.preventDefault();
-        setIssues(prevIssues => setIssues([...prevIssues, { item: name, date: date, description: description, location: location }]))
+        setIssues(prevIssues => setIssues([...prevIssues, { item: name, description: description, location: location }]))
         axiosAuth()
-            .post(``, newIssue)
-            .then(res => setNewIssue(res.data.data).history.push('/Profilepage'));
+            .post(`/posts/create`, newIssue)
+            .then(res => setNewIssue(res.data.issues).history.push('/Profilepage'));
     }
     return (
         <>
         <form onSubmit={addProduct}>
-            <input placeholder="Item name" type="text" name="name" value={name} onChange={updateName} />
-            <input placeholder="date" type="text" name="price" value={date} onChange={updateDate} />
-            <input placeholder="Location" type="text" name="location" value={location} onChange={updateLocation} />
-            <input placeholder="Description" type="text" name="description" value={description} onChange={updateDescription} />
+            <br></br>
+            <input placeholder="Item name" 
+            type="text" 
+            name="name" 
+            value={name} 
+            onChange={updateName} />
+
+            <br></br>
+
+            <input 
+            placeholder="Location" 
+            type="text" 
+            name="location" 
+            value={location} 
+            onChange={updateLocation} />
+            <br></br>
+
+            <input 
+            placeholder="Description" 
+            type="text" 
+            name="description" 
+            value={description} 
+            onChange={updateDescription} />
+
             <button>Submit</button>
+            <span>
+            <Link to='/ProfilePage'>
+            <button>Back To Profile Page</button>
+            </Link>
+            </span>
+
         </form>
         <div className="items-list-wrapper">
                 {issues.map(itm => {
@@ -54,7 +91,7 @@ function AddIssue() {
                             <h1 >{itm.item}</h1>
                             <p>{itm.description}</p>
                             <p><strong>{itm.location}</strong></p>
-                            <p>${itm.date}</p>
+                            
                         </div>
                 );
             })}

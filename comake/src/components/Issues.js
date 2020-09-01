@@ -5,6 +5,7 @@ import { useParams, Route, useRouteMatch, Link } from 'react-router-dom';
 import axios from 'axios'
 import Card from './itemCard'
 import ItemList from './ItemList';
+import axiosAuth from '../utils/axiosAuth';
 
 
 
@@ -15,28 +16,28 @@ const Items = (props) => {
 
     const id = useParams ()
     useEffect (() => {
-        axios
-        .get(`https://amp-node-api.herokuapp.com/api/${id.id}`)
+        axiosAuth
+        .get(`/posts/`)
         .then (response => {
             console.log(response.data);
-            setProducts(response.data)
+            setIssues(response.data)
         })
         .catch(error => console.log("Error!", error))
     }, [id]);
     
-    if (!products) {
+    if (!issues) {
         return <div>Loading products...</div>;
       }
     
-      const { id, name, date, description, location } = issues;
+      const { id, name, description, zip_id} = issues;
 
     return (
         <div className = "item-wrapper">
             <div classname = "item-card">
                 <h2>{name}</h2>
-                {date.map(item => (
+                {/* {date.map(item => (
                 <div key = {date} className ="list-item">
-                    {date}
+                    {date} */}
                     </div>
             ))}
 
@@ -44,7 +45,7 @@ const Items = (props) => {
                      Description: <em>{description}</em>
                 </div>
                 <div className = "location">
-                    Location: <strong>{location}</strong>
+                    Location: <strong>{zip_id}</strong>
                 </div>
            
 
@@ -52,7 +53,7 @@ const Items = (props) => {
    
        
      
-        </div>
+       
     )
    }
 export default Items;
