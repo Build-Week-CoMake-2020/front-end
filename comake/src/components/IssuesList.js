@@ -12,7 +12,7 @@ function IssuesList(props) {
 
 const deleteIssue = id => {
     axiosAuth()
-    .delete(`/posts/${id}`)    //delete
+    .delete(`/posts/${issues.id}`)    //delete
     .then(res => {
         console.log(res);
         axiosAuth()
@@ -52,7 +52,7 @@ const deleteIssue = id => {
                     <button onClick = { e => {
                         //e.stopPropagation();
                         console.log("HAVING ISSUES",issues)
-                        deleteIssue(itm.id)}}>Delete Issue</button>
+                        deleteIssue(itm)}}>Delete Issue</button>
                    
                         </div>
                     </Link>

@@ -46,7 +46,7 @@ function AddIssue() {
         setIssues(prevIssues => setIssues([...prevIssues, { item: name, description: description, location: location }]))
         axiosAuth()
             .post(`/posts/create`, newIssue)
-            .then(res => setNewIssue(res.data.data).history.push('/Profilepage'));
+            .then(res => setNewIssue(res.data.issues).history.push('/Profilepage'));
     }
     return (
         <>
