@@ -65,8 +65,7 @@ export default function UpdateIssue ({ issues, setDependency }) {
           </div>
         </form>
       {/* )} */}
-      <div className="spacer" />
-      {/* stretch - build another form here to add a color */}
+     
     </div>
   );
 };
