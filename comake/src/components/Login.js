@@ -21,7 +21,6 @@ const Login = () => {
     const { push } = useHistory()
     const api_login = (loginData) => {
         axiosAuth()
-     
            .post('/auth/login', loginData)
             .then((res) => {
                 
@@ -46,11 +45,8 @@ const Login = () => {
     
     return (
 
-
-        
             <Form onSubmit={handleSubmit}>
-            
-
+        
             <FormGroup style= {{margin:'0 auto', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
                 <legend style= {{margin:'0 auto', marginBottom: '30px', postion: 'flex'}}>Login</legend>
             </FormGroup>

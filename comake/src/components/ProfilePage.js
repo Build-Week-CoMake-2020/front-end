@@ -51,6 +51,7 @@ const ProfilePage = () => {
                     <Button >Add Issue</Button>
                     </FormGroup>
                 </Link>
+              
                 
                     {/* <FormGroup style={{padding:'10px'}}>
                     <Button onClick = { e => {

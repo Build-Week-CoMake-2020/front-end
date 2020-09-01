@@ -9,6 +9,7 @@ import IssuesList from './components/IssuesList';
 import PrivateRoute from './utils/PrivateRoute';
 import { IssueProvider } from './components/context/IssueContext';
 import axios from 'axios'
+import UpdateIssue from './components/actions/UpdateIssue'
 
 
 const App = () => {
@@ -73,6 +74,9 @@ const App = () => {
          <IssuesList items= {issues}/>
        </Route>
 
+<Route exact path = '/UpdateIssue'>
+  <UpdateIssue/>
+</Route>
        
        {/* <Route exact path = '/ListPage'>
       <ListPage />

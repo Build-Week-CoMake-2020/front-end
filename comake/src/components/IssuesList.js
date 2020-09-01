@@ -4,6 +4,8 @@ import Login from "./Login";
 import { IssueContext } from './context/IssueContext'
 import axiosAuth from '../utils/axiosAuth'
 import { useParams, useHistory } from "react-router-dom";
+import { CardTitle, Card, Input, Button, FormGroup, CardImg} from 'reactstrap';
+
 // import AddIssue from './actions/AddIssue'
 // const CardRow = styled.div`
 // display:flex;`;
@@ -53,6 +55,12 @@ const deleteIssue = id => {
                         //e.stopPropagation();
                         console.log("HAVING ISSUES",issues)
                         deleteIssue(itm)}}>Delete Issue</button>
+
+                    <Link to ='/UpdateIssue'>
+                        
+                        <Button >Edit Issue</Button>
+                       
+                    </Link>    
                    
                         </div>
                     </Link>

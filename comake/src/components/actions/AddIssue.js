@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { IssueContext } from '../context/IssueContext'
 import axiosAuth from '../../utils/axiosAuth'
 import { useHistory, Link } from 'react-router-dom'
+import { CardTitle, Card, Input, Button, FormGroup, CardImg} from 'reactstrap';
 // import DeleteItem from './DeleteItems'
 
 
@@ -78,7 +79,7 @@ function AddIssue() {
             <button>Submit</button>
             <span>
             <Link to='/ProfilePage'>
-            <button>Back To Profile Page</button>
+            <Button>Back To Profile Page</Button>
             </Link>
             </span>
 
