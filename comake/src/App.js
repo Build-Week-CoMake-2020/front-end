@@ -26,7 +26,7 @@ const App = () => {
   return (
     <IssueProvider>
     <Router>
-        
+
       <div style={{backgroundColor:'#e74c3d'}}>
             <Jumbotron fluid style={{backgroundColor:'#F56A6A'}}>
            

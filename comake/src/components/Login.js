@@ -9,13 +9,13 @@ import axiosAuth from '../utils/axiosAuth';
 const Login = () => {
     
     const [loginData, setloginData] = useState({
-        username: "",
+        email: "",
         password: ""
     });
     const schema = yup.object().shape({
 
 
-        username: yup.string().required().min(2),
+        email: yup.string().required().min(2),
         password: yup.string().required().min(1)
     });
     const { push } = useHistory()
@@ -46,29 +46,34 @@ const Login = () => {
     
     return (
 
-        <>
-            <Form onSubmit={handleSubmit}
-            style = {{width: '40%', margin:'0 auto', marginTop: '10px', backgroundColor:'white', color:'white', padding: '25px'}}>
+
+        
+            <Form onSubmit={handleSubmit}>
+            
+
             <FormGroup style= {{margin:'0 auto', fontFamily:'Monoton', color:'white',  marginLeft:'50px'}}>
                 <legend style= {{margin:'0 auto', marginBottom: '30px', postion: 'flex'}}>Login</legend>
             </FormGroup>
                  {/* <h2>Log in to add new items</h2> */}
                  <FormGroup>
-                <Input placeholder="Email: Mark@email.com " type='email' name='email' onChange={handleChange} style={{ width: '120%', margin: '20px auto'}}></Input>
+
+                <Input placeholder="Email " type='email' name='email' onChange={handleChange} style={{ width: '75%', margin: '20px auto'}}></Input>
                 </FormGroup>
 
                 <FormGroup>
-                <Input placeholder="Password: 1234" type='password' name='password' onChange={handleChange} style={{ width: '120%', margin: '20px auto' }}></Input>
+                <Input placeholder="Password" type='password' name='password' onChange={handleChange} style={{ width: '75%', margin: '20px auto' }}></Input>
                 </FormGroup>
-                
-                <Button style = {{marginLeft:'110px'}}>login</Button>
+                {/*<Link to ='/profilepage'>*/}
+                <Button style = {{marginLeft:'85px'}} type='submit' to='/profilepage' >login</Button>
+
                 {/* <Link to ='/ListPage'>
                 
                 </Link> */}
+                {/*/</Link>*/}
             </Form>
 
 
-        </>
+        
     )
 }
 export default Login;
